@@ -1,0 +1,105 @@
+:root{
+    --color-main: hsl(110, 0, 124);
+    --color-gold: hsl(66, 99%, 23%);
+    --color-green: hsl(123, 62%, 16%);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+}
+
+.menu_bar{
+    background-color: crimson;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+}
+
+.logo{
+    color: lavenderblush;
+}
+
+.menu_bar ul{
+    list-style: none;
+    display: flex;
+}
+
+.menu_bar ul li{
+    padding: 10px 30px;
+    position: relative;
+}
+
+.menu_bar ul li a{
+    color: lavenderblush;
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.5s;
+}
+
+.menu_bar ul li a::before{
+    content: "";
+    display: inline-block;
+    background-color: lavenderblush;
+    height: 5px;
+    position: absolute;
+    top: -6px;
+    left: 0;
+    right: 0;
+    border-radius: 5px;
+    transform: scale(0,1);
+    transition: all 1.0s;
+}
+
+.menu_bar ul li a:hover::before{
+    transform: scale(1,1);
+}
+
+.menu_bar ul li a:hover{
+    color: black;
+    padding: 1px 1px;
+}
+
+.menu_lista{
+    display: none;
+}
+
+.menu_bar ul li:hover .menu_lista {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: crimson;   
+}
+
+.menu_bar ul li:hover .menu_lista ul{
+    display: block;
+    margin: 6px;
+}
+
+.menu_bar ul li:hover .menu_lista ul li{
+    width: 150px;
+    padding: 6px;
+    border-top: 1px solid lavenderblush;
+}
+
+.menu_lista_nr1{
+    display: none;
+}
+
+.menu_lista ul li:hover .menu_lista_nr1{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 150px;
+    background-color: crimson;
+}
+
