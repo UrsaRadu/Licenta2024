@@ -93,6 +93,7 @@ select{
     width: 100%;
     margin: 1rem 0;
     box-shadow: var(--box-shadow);
+    font-size: 18px;
 }
 input[type='submit']{
     cursor: pointer;
@@ -161,6 +162,11 @@ section,
     padding: 4%;
     margin: 8% 4%;
     margin-bottom: 2%;
+}
+.edit-post .flex-btn .btn{
+    width: 33%;
+    margin: .5rem;
+    text-align: center;
 }
 /*------ scroll bar -------*/
 ::-webkit-scrollbar{
@@ -316,7 +322,103 @@ header.scrolled a:hover{
     text-transform: capitalize;
     color: #555;
 }
-
+.show-post .box-container .box{
+    position: relative;
+    margin: 1rem;
+    min-height: 20vh;
+    box-shadow: var(--box-shadow);
+    padding: 1rem;
+    border-radius: .5rem;
+}
+.show-post .box-container .box .image{
+    width: 100%;
+    height: 20rem;
+    object-fit: contain;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+.show-post .box-container .box .status{
+    position: absolute;
+    left: 4%;
+    text-transform: capitalize;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    padding: .5rem 1rem;
+    border-radius: .3rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+    background: var(--light-green);
+}
+.show-post .box-container .box .price{
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--green);
+}
+.show-post .box-container .box .title{
+    font-size: 1.3rem;
+    text-transform: capitalize;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.show-post .box-container .box .flex-btn .btn{
+    width: 33%;
+    text-align: center;
+}
+.read-post{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.read-post form{
+    width: 100%;
+    border-radius: .5rem;
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+    position: relative;
+}
+.read-post form .status{
+    position: absolute;
+    top: 3%;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+    font-size: 1.1rem;
+    display: inline-block;
+    text-transform: capitalize;
+    background: var(--light-green);
+}
+.read-post form .image{
+    width: 80%;
+    margin-top: 1.5rem;
+}
+.read-post form .price{
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-size: 2.5rem;
+    font-weight: bold;    
+}
+.read-post form .title{
+    font-size: 2.5rem;
+    margin-top: 1.5rem;
+    text-align: center;
+    text-transform: capitalize;
+}
+.read-post form .content{
+    line-height: 2;
+    font-size: 1.2rem;
+    color: #555;
+    padding: 1rem 0;
+}
+.read-post form .flex-btn .btn{
+    width: 33%;
+    margin: .5rem;
+    text-align: center;
+}
 
 /*------------ media screen -----------*/
 @media (max-width: 991px){
