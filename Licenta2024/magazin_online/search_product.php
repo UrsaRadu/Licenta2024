@@ -41,11 +41,11 @@ include('functions/common_function.php');
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link"  href="index.php">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link"  href="/">Home <span class="sr-only">(current)</span></a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="display_all.php"> Products </a>
+        <a class="nav-link" href="#"> Products </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#"> Register </a>
@@ -61,7 +61,7 @@ include('functions/common_function.php');
       </li>
       
     </ul>
-    <form class="form-inline my-2 my-lg-0" action="search_product.php"
+    <form class="form-inline my-2 my-lg-0" action=""
     method="get">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" 
       aria-label="Search" name="search_data">
@@ -101,7 +101,7 @@ include('functions/common_function.php');
       <!-- fetching get products -->
       <?php 
       // calling function
-           getproducts();
+           search_product();
            get_unique_categories();
            get_unique_brands();
       ?>
@@ -152,13 +152,11 @@ include('functions/common_function.php');
 
 
   </div>
+ </div>
+      
+  
+    
 
-<!-- last child -->
-
-<!-- include footer -->
-<?php include("./includes/footer.php") ?>
-
-</div>
 
 </body>
 </html>
