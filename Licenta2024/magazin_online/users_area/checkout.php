@@ -1,7 +1,7 @@
 <!-- connect file -->
 <?php 
 include('includes/connect.php');
-include('functions/common_function.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +9,7 @@ include('functions/common_function.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Ecommerce Website </title>
+    <title> Magazin </title>
 
     <!-- bootstrap css link -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
@@ -53,13 +53,7 @@ include('functions/common_function.php');
       <li class="nav-item">
         <a class="nav-link" href="#"> Contact </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="cart.php"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> <sup>
-          <?php cart_item(); ?> </sup> </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"> Total Price: <?php total_cart_price(); ?>/- </a>
-      </li>
+      
       
     </ul>
     <form class="form-inline my-2 my-lg-0" action="search_product.php"
@@ -72,10 +66,6 @@ include('functions/common_function.php');
   </div>
 </nav>
 
-    <!-- calling cart function -->
-    <?php
-    cart();    
-    ?>
 
     <!-- second child -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
@@ -99,68 +89,29 @@ include('functions/common_function.php');
 
     <!-- fourth child -->
   <div class="row px-1">
-    <div class="col-md-10">
+    <div class="col-md-12">
 
       <!-- products -->
       <div class="row">
+        <?php 
+         if(!isset($_SESSION['username'])){
+            include('users_area/user_login.php');
+         } else {
+            include('payment.php');
+         } 
+        ?>
 
-      <!-- fetching get products -->
-      <?php 
-      // calling function
-           getproducts();
-           get_unique_categories();
-           get_unique_brands();
-
-           //$ip = getIPAddress();  
-           //echo 'User Real IP Address - '.$ip; 
-      ?>
  
+
+
     <!-- row end -->
     </div>
 
   <!-- col end -->  
   </div>
       
-      
-      
-
-      <!-- sidenav -->
-      <div class="col-md-2 bg-secondary p-0">
-
-      <!-- brands to be displayed -->
-        <ul class="navbar-nav me-auto text-center">
-          <li class="nav-item bg-info">
-            <a href="#" class="nav-link text-light">
-              <h4>Brands</h4></a>
-          </li>
-
-          <?php 
-               // calling function
-           getbrands();      
-          ?>
-
-        </ul>
-
-        <!-- categories to be displayed -->
-        <ul class="navbar-nav me-auto text-center">
-          <li class="nav-item bg-info">
-            <a href="#" class="nav-link text-light">
-              <h4>Categories</h4></a>
-          </li>
-
-          <?php 
-               // calling function
-          getcategories();
-          ?>       
-
-        </ul>
-
-
-      </div>
-
-
-
   </div>
+
 
 <!-- last child -->
 
