@@ -22,7 +22,7 @@ if(isset($_POST['confirm_payment'])){
     amount, payment_mode) VALUES ($order_id, $invoice_number, $amount, '$payment_mode' )";
     $result = mysqli_query($con, $insert_query);
     if($result){
-        echo "<h3 class='text-center text-light'> Successfuly conmpleted the payment ! </h3> ";
+        echo "<h3 class='text-center text-light'> Ati efectuat cu succes plata! </h3> ";
         echo "<script> window.open('profile.php?my_orders', '_self') </script>";
     }
     $update_orders = "UPDATE `user_orders` SET order_status='Complete' WHERE
@@ -37,7 +37,7 @@ if(isset($_POST['confirm_payment'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Payment Page </title>
+    <title> Pagina Plata </title>
 
     <!-- bootstrap css link -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
@@ -49,7 +49,7 @@ if(isset($_POST['confirm_payment'])){
 </head>
 <body class="bg-secondary">
     <div class="container my-5">
-        <h1 class="text-center text-light"> Confirm Payment </h1>
+        <h1 class="text-center text-light"> Confirmare Plata </h1>
         <form action="" method="post">
 
             <div class="form-outline my-4 text-center w-50 m-auto">
@@ -57,23 +57,23 @@ if(isset($_POST['confirm_payment'])){
                 name="invoice_number" value="<?php echo $invoice_number ?>">
             </div>
             <div class="form-outline my-4 text-center w-50 m-auto">
-                <label for="" class="text-light"> Amount </label>
+                <label for="" class="text-light"> Suma datorata </label>
                 <input type="text" class="form-control w-50 m-auto"
                 name="amount" value="<?php echo $amount_due ?>">
             </div>
             <div class="form-outline my-4 text-center w-50 m-auto">
                 <select name="payment_mode" class="form-select w-50 m-auto">
-                    <option>Select Payment Mode</option>
-                    <option>UPI</option>
-                    <option>Netbanking</option>
+                    <option>Selecteaza Modalitate Plata</option>
+                    <option>Visa</option>
+                    <option>Mastercard</option>
                     <option>Paypal</option>
-                    <option>Cash on Delivery</option>
-                    <option>Payoffline</option>
+                    <option>Plata la livrare</option>
+                    <option>Plateste Alternativ</option>
                 </select>                
             </div>
             <div class="form-outline my-4 text-center w-50 m-auto">
                 <input type="submit" class="bg-info py-2 px-3 border-0"
-                value="Confirm" name="confirm_payment">
+                value="Confirmare" name="confirm_payment">
             </div>
 
         </form>

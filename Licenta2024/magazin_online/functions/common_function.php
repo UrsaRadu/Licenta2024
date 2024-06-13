@@ -1,7 +1,7 @@
 <?php
 
 // including connect file
-include('./includes/connect.php');
+//include('./includes/connect.php');
 
 //getting products
 function getproducts(){
@@ -34,9 +34,9 @@ function getproducts(){
                     <p class='card-text'> $product_description </p>
                     <p class='card-text'> Price: $product_price /- </p>
                     <a href='index.php?add_to_cart=$product_id' 
-                    class='btn btn-info'> Add to card </a>
+                    class='btn btn-info'> Adauga in cos </a>
                     <a href='product_details.php?product_id=$product_id' class='btn 
-                    btn-secondary'> View more </a>
+                    btn-secondary'> Vizualizeaza </a>
                  </div>
             </div>
             </div>
@@ -78,9 +78,9 @@ function getproducts(){
                     <p class='card-text'> $product_description </p>
                     <p class='card-text'> Price: $product_price /- </p>
                     <a href='index.php?add_to_cart=$product_id' 
-                    class='btn btn-info'> Add to card </a>
+                    class='btn btn-info'> Adauga in cos </a>
                     <a href='product_details.php?product_id=$product_id' class='btn 
-                    btn-secondary'> View more </a>
+                    btn-secondary'> Vizualizeaza </a>
                  </div>
             </div>
             </div>
@@ -108,7 +108,7 @@ function getproducts(){
                
                $num_of_rows = mysqli_num_rows($result_query);
                if($num_of_rows == 0){
-                echo "<h2 class='text-center text-danger'> No stock for this Category </h2>";
+                echo "<h2 class='text-center text-danger'> Nu mai exista Produse in stoc</h2>";
                }
                
                while($row = mysqli_fetch_assoc($result_query)){
@@ -131,9 +131,9 @@ function getproducts(){
                         <p class='card-text'> $product_description </p>
                         <p class='card-text'> Price: $product_price /- </p>
                         <a href='index.php?add_to_cart=$product_id' 
-                    class='btn btn-info'> Add to card </a>
+                    class='btn btn-info'> Adauga in cos </a>
                         <a href='product_details.php?product_id=$product_id' class='btn 
-                    btn-secondary'> View more </a>
+                    btn-secondary'> Vizualizeaza </a>
                      </div>
                 </div>
                 </div>
@@ -157,7 +157,7 @@ function getproducts(){
                
                $num_of_rows = mysqli_num_rows($result_query);
                if($num_of_rows == 0){
-                echo "<h2 class='text-center text-danger'> This Brand is not available </h2>";
+                echo "<h2 class='text-center text-danger'> Acest Producator nu este disponibil</h2>";
                }
                
                while($row = mysqli_fetch_assoc($result_query)){
@@ -180,9 +180,9 @@ function getproducts(){
                         <p class='card-text'> $product_description </p>
                         <p class='card-text'> Price: $product_price /- </p>
                         <a href='index.php?add_to_cart=$product_id' 
-                    class='btn btn-info'> Add to card </a>
+                    class='btn btn-info'> Adauga in cos </a>
                         <a href='product_details.php?product_id=$product_id' class='btn 
-                    btn-secondary'> View more </a>
+                    btn-secondary'> Vizualizeaza </a>
                      </div>
                 </div>
                 </div>
@@ -241,8 +241,8 @@ function getproducts(){
 
            $num_of_rows = mysqli_num_rows($result_query);
                if($num_of_rows == 0){
-                echo "<h2 class='text-center text-danger'> No result match.
-                No products found on this category! </h2>";
+                echo "<h2 class='text-center text-danger'> Nu a fost gasit nici un rezultat.
+                Nu a fost gasit nici un produs din aceasta categorie! </h2>";
                }
            
            while($row = mysqli_fetch_assoc($result_query)){
@@ -265,9 +265,9 @@ function getproducts(){
                     <p class='card-text'> $product_description </p>
                     <p class='card-text'> Price: $product_price /- </p>
                     <a href='index.php?add_to_cart=$product_id' 
-                    class='btn btn-info'> Add to card </a>
+                    class='btn btn-info'> Adauga in cos </a>
                     <a href='product_details.php?product_id=$product_id' class='btn 
-                    btn-secondary'> View more </a>
+                    btn-secondary'> Vizualizeaza </a>
                  </div>
             </div>
             </div>
@@ -312,9 +312,9 @@ function view_details(){
                     <p class='card-text'> $product_description </p>
                     <p class='card-text'> Price: $product_price /- </p>
                     <a href='index.php?add_to_cart=$product_id' 
-                    class='btn btn-info'> Add to card </a>
+                    class='btn btn-info'> Adauga in cos </a>
                     <a href='index.php' class='btn 
-                    btn-secondary'> Go Home </a>
+                    btn-secondary'> Acasa </a>
                  </div>
             </div>
             </div>
@@ -322,7 +322,7 @@ function view_details(){
             <div class='col-md-8'>
             <div class='row'>
                 <div class='col-md-12'>
-                    <h4 class='text-center text-info mb-5'> Related Products </h4>
+                    <h4 class='text-center text-info mb-5'> Produse asemanatoare </h4>
                 </div>
                 <div class='col-md-6'>
                 <img src='./admin_area/product_images/$product_image2' class='card-img-top' 
@@ -375,15 +375,14 @@ function cart(){
      $result_query = mysqli_query($con, $select_query); 
      $num_of_rows = mysqli_num_rows($result_query);
                if($num_of_rows > 0){
-               echo "<script> alert('This item is
-               already present inside cart') </script>";
+               echo "<script> alert('Acest articol este deja prezent in cos') </script>";
                 echo "<script> window.open('index.php', '_self') </script>";
                } else {
                 $insert_query = "INSERT INTO `cart_details`
-                 (product_id, ip_address, quantity) VALUES
+                 (product_id, ip_address, quantity) VALUES 
                  ('$get_product_id', '$get_ip_add', 0)";
                  $result_query = mysqli_query($con, $insert_query); 
-                 echo "<script> alert('Item is added to cart') </script>";
+                 echo "<script> alert('Articolul a fost adaugat in cos') </script>";
                  echo "<script> window.open('index.php', '_self') </script>";
 
                }
@@ -441,5 +440,46 @@ function cart(){
       echo $total_price;
 
     }
-?>
 
+
+
+    // get user order details
+    function get_user_order_details(){
+      global $con;
+      $username = $_SESSION['username'];
+      $get_details = "SELECT * FROM `user_table` WHERE
+      username = '$username' ";
+      $result_query = mysqli_query($con, $get_details);
+      while($row_query = mysqli_fetch_array($result_query)){
+        $user_id = $row_query['user_id'];
+        if(!isset($_GET['edit_account'])){
+          if(!isset($_GET['my_orders'])){
+            if(!isset($_GET['delete_account'])){
+              $get_orders = "SELECT * FROM `user_orders` WHERE 
+              user_id = $user_id AND order_status = 'pending'";
+              $result_orders_query = mysqli_query($con, $get_orders);
+              $row_count = mysqli_num_rows($result_orders_query);
+              if($row_count > 0){
+                echo "<h3 class='text-center text-success mt-5 mb-3'> Aveti 
+                <span class='text-danger'> $row_count </span> comenzi in asteptare</h3> 
+                <p class='text-center my-2'> <a href='profile.php?my_orders' class='text-dark'>
+                 Detalii Comenzi </a> </p>";
+              } else {
+                echo "<h3 class='text-center text-success mt-5 mb-3'> Aveti 0
+                 comenzi in asteptare</h3> 
+                <p class='text-center my-2'> <a href='../index.php' class='text-dark'>
+                 Descopera Produsele </a> </p>";
+
+
+              }
+
+            }
+          }
+        }
+      }
+
+    }
+
+
+
+?>

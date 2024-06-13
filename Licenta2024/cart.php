@@ -2,6 +2,7 @@
 <?php 
 include('includes/connect.php');
 include('functions/common_function.php');
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +10,7 @@ include('functions/common_function.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Cart Details </title>
+    <title> Magazin - Produse autentice locale </title>
 
     <!-- bootstrap css link -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
@@ -22,12 +23,13 @@ include('functions/common_function.php');
     
 
     <!-- css file -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="#">
     <style>
     .cart_img{
       width: 100px;
       height: 100px;
       object-fit: contain;
+      overflow-x: hidden;
     }
     </style>
     
@@ -49,20 +51,22 @@ include('functions/common_function.php');
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link"  href="index.php">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link"  href="index.php">Acasa <span class="sr-only"></span></a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="display_all.php"> Products </a>
+        <a class="nav-link" href="display_all.php"> Produse </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"> Register </a>
+        <a class="nav-link" href="./users_area/user_registration.php"
+        > Inregistrare </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#"> Contact </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="cart.php"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> <sup>
+        <a class="nav-link" href="cart.php"> <i class="fa fa-shopping-cart" 
+        aria-hidden="true"></i> <sup>
           <?php cart_item(); ?> </sup> </a>
       </li>
       
@@ -80,19 +84,40 @@ include('functions/common_function.php');
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
       <ul class="navbar-nav me-auto">
 
-        <li class="nav-item">
-          <a class="nav-link" href="#"> Welcome Guest </a> 
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#"> Login </a> 
-        </li>
+
+    <?php 
+    if(!isset($_SESSION['username'])){
+      echo"
+        <li class='nav-item'>
+          <a class='nav-link' href='#'> Bine ati venit </a> 
+        </li> ";
+      } else {
+        echo "
+        <li class='nav-item'>
+        <a class='nav-link' href='#'> Bine ai venit 
+        ".$_SESSION['username']."</a> 
+      </li> "; 
+      }
+
+    if(!isset($_SESSION['username'])){
+      echo"
+      <li class='nav-item'>
+          <a class='nav-link' href='./users_area/user_login.php'> Logare </a> 
+        </li> ";
+      } else {
+        echo "
+        <li class='nav-item'>
+        <a class='nav-link' href='./users_area/logout.php'> Delogare </a> 
+      </li> "; 
+      }
+    ?>
 
       </ul>
     </nav>
 
     <!-- third child -->
     <div class="bg-light">
-      <h3 class="text-center"> Hidden Store </h3>
+      <h3 class="text-center"> Magazin Produse </h3>
     </div>
 
 <!-- fourth child -->
@@ -113,12 +138,12 @@ include('functions/common_function.php');
           echo "
               <thead>
             <tr>
-              <th> Product Title </th>
-              <th> Product Image </th>
-              <th> Quantity </th>
-              <th> Total Price </th>
-              <th> Remove </th>
-              <th colspan='2'> Operations </th>
+              <th> Denumire Produs </th>
+              <th> Imagine Produs </th>
+              <th> Cantitate </th>
+              <th> Pret Total </th>
+              <th> Sterge </th>
+              <th colspan='2'> Operatiuni </th>
             </tr>
             </thead>
             <tbody>
@@ -151,8 +176,8 @@ include('functions/common_function.php');
                 $quantities = $_POST['qty'];
                 $update_cart = "UPDATE `cart_details` SET quantity =
                 $quantities WHERE ip_address = '$get_ip_add' ";
-                $result_products = mysqli_query($con, $update_cart);
-                $total_price_quantity = $total_price_quantity * $quantities;
+                $result_products_quantity = mysqli_query($con, $update_cart);
+                $total_price = $total_price * $quantities;
               } 
             ?>
 
@@ -177,7 +202,7 @@ include('functions/common_function.php');
             } 
           } else{
         
-          echo "<h2 class='text-center text-danger'> Cart is empty <h2> ";
+          echo "<h2 class='text-center text-danger'> Cosul este gol <h2> ";
         }
             ?>
 
@@ -198,8 +223,8 @@ include('functions/common_function.php');
             <input type='submit' value='Continue Shopping' class='bg-info px-3 
             py-2 border-0 mx-3' name='continue_shopping'>
             <button class='bg-secondary p-3 py-2 border-0 '>
-            <a href='checkout.php' class='text-light text-decoration-none'>
-            Checkout </a></button> 
+            <a href='./users_area/checkout.php' class='text-light text-decoration-none'>
+            Iesire </a></button> 
         ";
           } else {
             echo "<input type='submit' value='Continue Shopping' class='bg-info px-3 

@@ -1,4 +1,3 @@
-
 <?php 
     if(isset($_GET['edit_account'])){
         $user_session_name = $_SESSION['username'];
@@ -30,7 +29,7 @@
             WHERE user_id = $update_id ";
             $result_query_update = mysqli_query($con, $update_data);
             if($result_query_update){
-                echo "<script> alert ('Data Updated Successfuly !') </script>";
+                echo "<script> alert ('Datele au fost actualizate cu succes!') </script>";
                 echo "<script> window.open ('logout.php', '_self') </script>";
             
         }

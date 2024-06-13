@@ -1,17 +1,17 @@
 
     
-    <h3 class="text-center text-success"> All Products </h3>
+    <h3 class="text-center text-success"> Toate Produsele </h3>
     <table class="table table-bordered mt-5">
         <thead>
             <tr class="text-center">
-                <th> Product Id </th>
-                <th> Product Title </th>
-                <th> Product Image </th>
-                <th> Product Price </th>
-                <th> Total Sold </th>
+                <th> Produs Id </th>
+                <th> Produs Denumire </th>
+                <th> Produs Imagine </th>
+                <th> Product Pret </th>
+                <th> Total </th>
                 <th> Status </th>
-                <th> Edit </th>
-                <th> Delete </th>
+                <th> Editare </th>
+                <th> Stergere </th>
             </tr>
         </thead>
         <tbody>
@@ -44,9 +44,9 @@
                 
                 ?> </td>
                 <td> <?php echo $status; ?> </td>
-                <td> <a href="index.php?edit_products" class="text-dark"> <i class="fa-solid 
+                <td> <a href="index.php?edit_products=<?php echo $product_id ?>" class="text-dark"> <i class="fa-solid 
                     fa-pen-to-square"> </i> </a> </td>
-                <td> <a href="" class="text-dark"> <i class="fa-solid 
+                <td> <a href="index.php?delete_product=<?php echo $product_id ?>" class="text-dark"> <i class="fa-solid 
                     fa-trash"> </i> </a> </td>
             </tr>
 

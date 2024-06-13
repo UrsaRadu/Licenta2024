@@ -1,4 +1,3 @@
-
 <!-- connect file -->
 <?php 
 include('../includes/connect.php');
@@ -11,7 +10,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Welcome <?php echo $_SESSION['username'] ?> </title>
+    <title> Bine ai venit <?php echo $_SESSION['username'] ?> </title>
 
     <!-- bootstrap css link -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
@@ -66,15 +65,15 @@ session_start();
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item">
         <a class="nav-link active" aria-current="page" 
-        href="../index.php"> Home </a>
+        href="../index.php"> Acasa </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="../display_all.php"> Products </a>
+        <a class="nav-link" href="../display_all.php"> Produse </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="profile.php"
-        > My Account </a>
+        > Contul Meu </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#"> Contact </a>
@@ -85,12 +84,12 @@ session_start();
           <?php cart_item(); ?> </sup> </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"> Total Price: <?php total_cart_price(); ?>/- </a>
+        <a class="nav-link" href="#"> Pret Total: <?php total_cart_price(); ?>/- </a>
       </li>
       
     </ul>
     <form class="d-flex" action="../search_product.php" method="get">
-      <input class="form-control me-2" type="search" placeholder="Search" 
+      <input class="form-control me-2" type="search" placeholder="Cauta" 
       aria-label="Search" name="search_data">
       <input type="submit" value="Search" class="btn btn-outline-light"
       name="search_data_product">
@@ -113,12 +112,12 @@ session_start();
     if(!isset($_SESSION['username'])){
       echo"
         <li class='nav-item'>
-          <a class='nav-link' href='#'> Welcome Guest </a> 
+          <a class='nav-link' href='#'> Bine ati venit </a> 
         </li> ";
       } else {
         echo "
         <li class='nav-item'>
-        <a class='nav-link' href='#'> Welcome 
+        <a class='nav-link' href='#'> Bine ai venit 
         ".$_SESSION['username']."</a> 
       </li> "; 
       }
@@ -126,12 +125,12 @@ session_start();
     if(!isset($_SESSION['username'])){
       echo"
       <li class='nav-item'>
-          <a class='nav-link' href='./users_area/user_login.php'> Login </a> 
+          <a class='nav-link' href='./users_area/user_login.php'> Logare </a> 
         </li> ";
       } else {
         echo "
         <li class='nav-item'>
-        <a class='nav-link' href='./users_area/logout.php'> Logout </a> 
+        <a class='nav-link' href='./users_area/logout.php'> Delogare </a> 
       </li> "; 
       }
     ?>
@@ -142,7 +141,7 @@ session_start();
 
     <!-- third child -->
     <div class="bg-light">
-      <h3 class="text-center"> Hidden Store </h3>
+      <h3 class="text-center"> Magazin Produse </h3>
     </div>
 
 
@@ -154,7 +153,7 @@ session_start();
 
                 <li class="nav-item bg-info">
                    <a class="nav-link text-light" href="#">
-                     Your Profile </a>
+                     Profilul Meu </a>
                 </li>
 
                 <?php 
@@ -175,23 +174,23 @@ session_start();
                 
                 <li class="nav-item">
                    <a class="nav-link text-light" href="profile.php">
-                     Pending Orders </a>
+                     Plata in curs </a>
                 </li>
                 <li class="nav-item">
                    <a class="nav-link text-light" href="profile.php?edit_account">
-                     Edit Account </a>
+                     Editare Cont </a>
                 </li>
                 <li class="nav-item">
                    <a class="nav-link text-light" href="profile.php?my_orders">
-                     My Orders </a>
+                     Comenzile Mele </a>
                 </li>
                 <li class="nav-item">
                    <a class="nav-link text-light" href="profile.php?delete_account">
-                     Delete Account </a>
+                     Sterge Contul </a>
                 </li>
                 <li class="nav-item">
                    <a class="nav-link text-light" href="logout.php">
-                     Logout </a>
+                     Delogare </a>
                 </li>
 
             </ul>

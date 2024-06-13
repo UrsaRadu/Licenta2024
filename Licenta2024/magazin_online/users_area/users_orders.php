@@ -21,16 +21,16 @@
 
     
     ?>
-      <h3 class="text-success"> All My Orders </h3>
+      <h3 class="text-success"> Toate Comenzile Mele </h3>
       <table class="table table-bordered mt-5">
         <thead class="bg-info">
         <tr>
-            <th>Serial Nr</th>
-            <th>Amount Due</th>
-            <th>Total Products</th>
-            <th>Invoice Number</th>
-            <th>Date</th>
-            <th>Complete/Incomplete</th>
+            <th>Serie Numar</th>
+            <th>Suma Datorata</th>
+            <th>Total Produs</th>
+            <th>Factura Numar</th>
+            <th>Data</th>
+            <th>Complet/Incomplet</th>
             <th>Status</th>
         </tr>
         </thead>
@@ -67,11 +67,11 @@
 
             <?php
                 if($order_status == 'Complete'){
-                    echo "<td> Paid </td>";
+                    echo "<td> Platit </td>";
                 } else {
                 echo "                       
                 <td> <a href= 'confirm_payment.php?order_id=$order_id' 
-                class = 'text-dark'> Confirm </a> </td>
+                class = 'text-dark'> Confirmare </a> </td>
             </tr> 
                 ";
             }

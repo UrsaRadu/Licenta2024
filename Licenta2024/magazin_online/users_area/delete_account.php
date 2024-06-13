@@ -1,15 +1,15 @@
 
 
-<h3 class="text-danger mb-4"> Delete Account </h3>
+<h3 class="text-danger mb-4"> Sterge Cont </h3>
     <form action="" method="post" class="mt-5">
 
         <div class="form-outline mb-4">
             <input type="submit" class="form-control w-50 m-auto"
-            name="delete" value="Delete Account"> 
+            name="delete" value="Sterge Contul"> 
         </div>
         <div class="form-outline mb-4">
             <input type="submit" class="form-control w-50 m-auto"
-            name="dont_delete" value="Don't Delete Account"> 
+            name="dont_delete" value="Nu sterge Contul"> 
         </div>
 
     </form>
@@ -22,7 +22,7 @@
         $result = mysqli_query($con, $delete_query);
         if($result){
             session_destroy();
-            echo "<script> alert ('Account Deleted successfuly !') </script>";
+            echo "<script> alert ('Contul a fost sters cu succes!') </script>";
             echo "<script> window.open ('../index.php', '_self') </script>";
         }
     }
