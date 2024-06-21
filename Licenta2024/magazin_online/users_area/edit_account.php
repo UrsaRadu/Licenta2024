@@ -1,3 +1,4 @@
+
 <?php 
     if(isset($_GET['edit_account'])){
         $user_session_name = $_SESSION['username'];
@@ -29,7 +30,7 @@
             WHERE user_id = $update_id ";
             $result_query_update = mysqli_query($con, $update_data);
             if($result_query_update){
-                echo "<script> alert ('Datele au fost actualizate cu succes!') </script>";
+                echo "<script> alert ('Actualizare cu succes !') </script>";
                 echo "<script> window.open ('logout.php', '_self') </script>";
             
         }
@@ -44,10 +45,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Edit Account </title>
+    <title> Editeaza Contul </title>
 </head>
 <body>
-    <h3 class="text-center text-success mb-4"> Edit Account </h3>
+    <h3 class="text-center text-success mb-4"> Editeaza Contul </h3>
     <form action="" method="post" enctype="multipart/form-data" > 
 
         <div class="form-outline mb-4">
@@ -71,7 +72,7 @@
             <input type="text"class="form-control w-50 
             m-auto" value="<?php echo $user_mobile ?>" name="user_mobile">
         </div>
-        <input type="submit" value="Update" class="bg-info py-2 px-3 
+        <input type="submit" value="Actualizeaza" class="bg-danger text-white fw-bold py-2 px-3 
         border-0" name="user_update">
 
     </form>

@@ -1,3 +1,4 @@
+
 <?php 
 include('../includes/connect.php'); 
 include('../functions/common_function.php');
@@ -8,7 +9,7 @@ include('../functions/common_function.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Plata </title>
+    <title> Optiuni Plata </title>
 
     <!-- bootstrap css link -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
@@ -48,18 +49,21 @@ include('../functions/common_function.php');
     ?>
 
     <div class="container">
-        <h2 class="text-center text-info"> Plata Optiuni </h2>
+        <h2 class="text-center bg-warning text-white"> Optiuni de Plata </h2>
+        <a href="../index.php" class="bg-info py-2 px-4 bg-danger text-white border-0" 
+                style="text-decoration: none; margin-top: 20px; display: inline-block;">Inapoi la Acasa</a>
         <div class="row d-flex justify-content-center
         align-items-center my-5">
 
             <div class="col-md-6">
             <a href="https://www.paypal.com" target="_blank" >
-                <img src="../images/bani.webp" alt="">
+            <img src="../images/bani1.webp" alt=""> 
             </a>
             </div>
             <div class="col-md-6">
             <a href="order.php?user_id=<?php echo $user_id ?>"> 
-            <h2 class="text-center"> Plateste Alternativ</h2> </a>
+            <h2 class="text-center text-danger"
+            style="display: inline-block"> Confirmare Comanda </h2> </a>
             </div>
 
         </div>

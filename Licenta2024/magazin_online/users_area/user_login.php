@@ -1,3 +1,4 @@
+
 <?php 
 include('../includes/connect.php'); 
 include('../functions/common_function.php');
@@ -9,7 +10,7 @@ include('../functions/common_function.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Logare Utilizator </title>
+    <title> Autentificare </title>
 
     <!-- bootstrap css link -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
@@ -36,41 +37,43 @@ include('../functions/common_function.php');
 </head>
 <body>
     <div class="container-fluid my-3">
-        <h2 class="text-center"> Logare Utilizator </h2>
+        <h2 class="text-center text-danger fw-bold"> Autentificare Utilizator </h2>
         <div class="row d-flex align-items-center justify-content-center mt-5">
             <div class="col-lg-12 col-xl-6">
                 <form action="" method="post" >
 
                 <!-- username field -->
                   <div class="form-outline mb-4">
-                     <label for="user_username" class="form-label"
-                     > Username </label>
+                     <label for="user_username" class="form-label text-danger fw-bold "
+                     > Nume Utilizator </label>
                      <input type="text" id="user_username" class=
-                     "form-control" placeholder="Introduceti Username"
+                     "form-control" placeholder="Introdu Nume Utilizator"
                      autocomplete="off" required="required" name=
                      "user_username" />
                   </div>
 
                   <!-- password field -->
                   <div class="form-outline mb-4">
-                     <label for="user_password" class="form-label"
+                     <label for="user_password" class="form-label text-danger fw-bold"
                      > Parola </label>
                      <input type="password" id="user_password" class=
-                     "form-control" placeholder="Introduceti Parola"
+                     "form-control" placeholder="Introdu Parola"
                      autocomplete="off" required="required" name=
                      "user_password" />
                   </div>
 
                   <div class="mt-4 pt-2">
-                    <input type="submit" value="Login"
-                    class="bg-info py-2 px-4 border-0" name="user_login">
+                    <input type="submit" value="Autentificare"
+                    class="bg-info py-2 px-4 bg-danger text-white fw-bold border-0" name="user_login">
                     <p class="small fw-bold mt-2 pt-1 mb-0">
-                    Nu aveți un cont? <a href="user_registration.php" class="text-danger"> 
-                    Inregistrare </a></p>
+                    Daca nu ai Cont ? <a href="user_registration.php" class="text-danger"> 
+                    Inregistreaza-te </a></p>
                   </div>
             
 
                 </form>
+                <a href="../index.php" class="bg-info py-2 px-4 bg-danger text-white fw-bold border-0" 
+                style="text-decoration: none; margin-top: 20px; display: inline-block;">Inapoi la Acasa</a>
             </div>
         </div>
     </div>
@@ -105,19 +108,19 @@ include('../functions/common_function.php');
             $row_data['user_password'])){
         if($row_count == 1 AND $row_count_cart == 0){
             $_SESSION['username'] = $user_username;
-            echo "<script> alert('Logare cu succes !')</script>";
+            echo "<script> alert('Autentificare cu succes !')</script>";
             echo "<script> window.open('profile.php', '_self')</script>";
         } else {
             $_SESSION['username'] = $user_username;
-            echo "<script> alert('Logare cu succes !')</script>";
+            echo "<script> alert('Autentificare cu succes !')</script>";
             echo "<script> window.open('payment.php', '_self')</script>";
         }
         } else {
-            echo "<script> alert('Acreditări nevalide')</script>";
+            echo "<script> alert('Invalid !')</script>";
         }
 
         } else {
-            echo "<script> alert('Acreditări nevalide')</script>";
+            echo "<script> alert('Invalid !')</script>";
 
         }
        }

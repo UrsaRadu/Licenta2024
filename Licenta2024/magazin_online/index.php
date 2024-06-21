@@ -10,7 +10,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Magazin - Produse autentice locale </title>
+    <title> Produse Locale </title>
 
     <!-- bootstrap css link -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
@@ -25,6 +25,10 @@ session_start();
     <!-- css file -->
     <link rel="stylesheet" href="#">
     <style> 
+    .logo{
+    width: 7%;
+    height: 7%;
+}
     body{
         overflow-x: hidden;
           
@@ -39,8 +43,8 @@ session_start();
     <div class="container-fluid p-0">
 
          <!-- first child -->
-         <nav class="navbar navbar-expand-lg navbar-light bg-info">
-  <img src="./images/logo.jpg" alt="" class="logo">
+         <nav class="navbar navbar-expand-lg navbar-warning bg-warning">
+  <img src="./images/logo5.png" alt="" class="logo">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -49,49 +53,34 @@ session_start();
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="index.php">Acasa <span class="sr-only"></span></a>
+        <a class="nav-link text-white" href="index.php">Acasa <span class="sr-only">(current)</span></a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="display_all.php"> Produse </a>
-      </li>
-
-      <?php
-           if(isset($_SESSION['username'])){
-             echo "
-                 <li class='nav-item'>
-                 <a class='nav-link' href='./users_area/profile.php'
-                 > My Account </a>
-                 </li>
-             ";
-              } else {
-                echo "
-                 <li class='nav-item'>
-                 <a class='nav-link' href='./users_area/user_registration.php'
-                 > Register </a>
-                 </li>
-             ";             
-              }
-      
-      ?>
-    
-      <li class="nav-item">
-        <a class="nav-link" href="#"> Contact </a>
+        <a class="nav-link text-white" href="display_all.php"> Produse </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="cart.php"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> <sup>
+        <a class="nav-link text-white" href="./users_area/user_registration.php"
+        > Inregistrare </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="./users_area/profile.php"
+        > Contul Meu </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="cart.php"> <i class="fa fa-shopping-cart" aria-hidden="true"></i> <sup>
           <?php cart_item(); ?> </sup> </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"> Pret Total: <?php total_cart_price(); ?>/- </a>
+        <a class="nav-link text-white" href="#"> Pret:  <?php echo"Lei ".total_cart_price().""; ?> /- </a>
       </li>
       
     </ul>
     <form class="form-inline my-2 my-lg-0" action="search_product.php"
     method="get">
-      <input class="form-control mr-sm-2" type="search" placeholder="Cauta" 
+      <input class="form-control mr-sm-2 text-warning" type="search" placeholder="Cauta" 
       aria-label="Search" name="search_data">
-      <input type="submit" value="Search" class="btn btn-outline-light"
+      <input type="submit" value="Cauta" class="btn btn-outline-light"
       name="search_data_product">
     </form>
   </div>
@@ -102,8 +91,9 @@ session_start();
     cart();    
     ?>
 
+
     <!-- second child -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-white text-warning">
       <ul class="navbar-nav me-auto">
 
 
@@ -111,12 +101,12 @@ session_start();
     if(!isset($_SESSION['username'])){
       echo"
         <li class='nav-item'>
-          <a class='nav-link' href='#'> Bine ati venit </a> 
+          <a class='nav-link text-warning' href='#'> Bine ai Venit </a> 
         </li> ";
       } else {
         echo "
         <li class='nav-item'>
-        <a class='nav-link' href='#'> Bine ai venit 
+        <a class='nav-link text-warning' href='#'> Bine ai Venit 
         ".$_SESSION['username']."</a> 
       </li> "; 
       }
@@ -124,29 +114,33 @@ session_start();
     if(!isset($_SESSION['username'])){
       echo"
       <li class='nav-item'>
-          <a class='nav-link' href='./users_area/user_login.php'> Logare </a> 
+          <a class='nav-link text-warning' href='./users_area/user_login.php'> Autentificare </a> 
         </li> ";
       } else {
         echo "
         <li class='nav-item'>
-        <a class='nav-link' href='./users_area/logout.php'> Delogare </a> 
+        <a class='nav-link text-warning' href='./users_area/logout.php'> Deconectare </a> 
       </li> "; 
       }
     ?>
+
 
       </ul>
     </nav>
 
 
     <!-- third child -->
-    <div class="bg-light">
-      <h3 class="text-center"> Magazin Produse</h3>
+    <div class="bg-warning text-white">
+      <h3 class="text-center"> Magazin Online cu Produse Locale </h3>
     </div>
 
 
+ 
     <!-- fourth child -->
   <div class="row px-1">
+ 
     <div class="col-md-10">
+
 
       <!-- products -->
       <div class="row">
@@ -167,42 +161,46 @@ session_start();
 
   <!-- col end -->  
   </div>
+
+  <!-- sidenav -->
+  <div class="col-md-2 bg-white  p-0">
+
+<ul class="navbar-nav me-auto text-white">
+    <li class="nav-item bg-white">
+      <a href="index.php" class="nav-link text-warning text-center">
+        <h5> Reimprospatare </h5></a>
+    </li>
+  </ul>
+
+<!-- brands to be displayed -->
+<ul class="navbar-nav me-auto text-center">
+    <li class="nav-item bg-warning">
+      <a href="#" class="nav-link text-light">
+        <h4>Producatori</h4></a>
+    </li>
+
+    <?php 
+         // calling function
+     getbrands();      
+    ?>
+
+  </ul>
+
+  <!-- categories to be displayed -->
+  <ul class="navbar-nav me-auto text-center">
+    <li class="nav-item bg-warning">
+      <a href="#" class="nav-link text-light">
+        <h4>Produse</h4></a>
+    </li>
+
+    <?php 
+         // calling function
+    getcategories();
+    ?>       
+
+  </ul>
       
-      
-      
-
-      <!-- sidenav -->
-      <div class="col-md-2 bg-secondary p-0">
-
-      <!-- brands to be displayed -->
-        <ul class="navbar-nav me-auto text-center">
-          <li class="nav-item bg-info">
-            <a href="#" class="nav-link text-light">
-              <h4>Producatori</h4></a>
-          </li>
-
-          <?php 
-               // calling function
-           getbrands();      
-          ?>
-
-        </ul>
-
-        <!-- categories to be displayed -->
-        <ul class="navbar-nav me-auto text-center">
-          <li class="nav-item bg-info">
-            <a href="#" class="nav-link text-light">
-              <h4>Categorii Produse</h4></a>
-          </li>
-
-          <?php 
-               // calling function
-          getcategories();
-          ?>       
-
-        </ul>
-
-
+        
       </div>
 
 

@@ -1,3 +1,4 @@
+
 <!-- connect file -->
 <?php 
 include('../includes/connect.php');
@@ -11,7 +12,7 @@ include('../functions/common_function.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Admin Dashboard</title>
+    <title>Tablou Principal</title>
 
 
     <!-- bootstrap css link -->
@@ -58,14 +59,14 @@ include('../functions/common_function.php');
     <div class="container-fluid p-0">
 
         <!-- first child -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        <nav class="navbar navbar-expand-lg navbar-light bg-warning">
             <div class="container-fluid">
-                <img src="../images/logo.jpg" alt="" class="logo">
+                <img src="../images/logo5.png" alt="" class="logo">
                 <nav class="navbar navbar-expand-lg">
                     <ul class="navbar-nav">
 
                         <li class="nav-item">
-                            <a href="" class="nav-link">Bine ai venit</a>
+                            <a href="" class="nav-link text-white fw-bold">Bine ai Venit </a>
                         </li>
 
 
@@ -77,70 +78,67 @@ include('../functions/common_function.php');
 
         <!-- second child -->  
         <div class="bg-light">
-            <h3 class="text-center p-2"> Administrare Detalii </h3>
+            <h3 class="text-center bg-white text-danger fw-bold p-2"> 
+                Detalii Tablou - Magazin Online cu Produse Locale </h3>
         </div>    
         
 
 
         <!-- third child -->
-        <div class="row">
-         <div class="col-md-12 bg-secondary p-1 d-flex align-items-center">
+        <div class="row ">
+         <div class="col-md-12 bg-warning p-1 d-flex align-items-center">
             <div class="px-5">
                 <a href="#">
-                    <img src="../images/logo1.png" alt="" class="admin_image">
+                    <img src="" alt="" class="admin_image">
                 </a>
-                <p class="text-light text-center">Nume Admin</p>
+                <p class="text-light text-center"> </p>
             </div>    
+
             
             <div class="button text-center">
                 <button class="my-3"> 
-                    <a href="insert_product.php" class="nav-link text-light bg-info my-1">
-                        Introducere Produse
+                    <a href="insert_product.php" class="nav-link text-danger fw-bold my-1">
+                    Insereaza Produse
                     </a> 
                 </button>
                 <button>
-                    <a href="index.php?view_products" class="nav-link text-light bg-info my-1">
-                        Vizualizare Produse
+                    <a href="index.php?view_products" class="nav-link text-danger fw-bold my-1">
+                        Toate Produsele
                     </a>
                 </button>
                 <button>
-                    <a href="index.php?insert_category" class="nav-link text-light bg-info my-1">
-                        Introducere Categorii
+                    <a href="index.php?insert_categ_brands" class="nav-link text-danger fw-bold my-1">
+                    Insereaza Producatori
                     </a>
                 </button>
                 <button>
-                    <a href="index.php?view_categories" class="nav-link text-light bg-info my-1">
-                        Vizualizare Categorii
+                    <a href="index.php?view_categ_brands" class="nav-link text-danger fw-bold my-1">
+                        Vizualizeaza Producatori
                     </a>
                 </button>
                 <button>
-                    <a href="index.php?insert_brand" class="nav-link text-light bg-info my-1">
-                        Introducere Producatori
+                    <a href="index.php?list_orders" class="nav-link text-danger fw-bold my-1">
+                        Lista Comenzi
                     </a>
                 </button>
                 <button>
-                    <a href="index.php?view_brands" class="nav-link text-light bg-info my-1">
-                        Vizualizare Producatori
+                    <a href="index.php?list_payments" class="nav-link text-danger fw-bold my-1">
+                        Lista Plati
                     </a>
                 </button>
                 <button>
-                    <a href="index.php?list_orders" class="nav-link text-light bg-info my-1">
-                        Toate Comenzile
-                    </a>
-                </button>
-                <button>
-                    <a href="index.php?list_payments" class="nav-link text-light bg-info my-1">
-                        Toate Platile
-                    </a>
-                </button>
-                <button>
-                    <a href="index.php?list_users" class="nav-link text-light bg-info my-1">
+                    <a href="index.php?list_users" class="nav-link text-danger fw-bold my-1">
                         Lista Utilizatori
                     </a>
                 </button>
                 <button>
-                    <a href="" class="nav-link text-light bg-info my-1">
-                        Delogare
+                    <a href="view_messages_admin.php" class="nav-link text-danger fw-bold my-1">
+                        Vizualizeaza Mesaje
+                    </a>
+                </button>
+                <button>
+                    <a href="./admin_logout.php" class="nav-link text-danger fw-bold my-1">
+                        Deconectare
                     </a>
                 </button>
             </div>
@@ -152,11 +150,8 @@ include('../functions/common_function.php');
      <!-- fourth child -->
      <div class="container my-3">
         <?php 
-          if(isset($_GET['insert_category'])) {
-                include('insert_categories.php');
-            }
-          if(isset($_GET['insert_brand'])) {
-            include('insert_brands.php');
+          if(isset($_GET['insert_categ_brands'])) {
+            include('insert_categ_brands.php');
             }
             if(isset($_GET['view_products'])) {
                 include('view_products.php');
@@ -167,11 +162,8 @@ include('../functions/common_function.php');
             if(isset($_GET['delete_product'])) {
                 include('delete_product.php');
             }
-            if(isset($_GET['view_categories'])) {
-                include('view_categories.php');
-            }
-            if(isset($_GET['view_brands'])) {
-                include('view_brands.php');
+            if(isset($_GET['view_categ_brands'])) {
+                include('view_categ_brands.php');
             }
             if(isset($_GET['edit_category'])) {
                 include('edit_category.php');
@@ -194,6 +186,15 @@ include('../functions/common_function.php');
             if(isset($_GET['list_users'])) {
                 include('list_users.php');
             }
+            if(isset($_GET['delete_users'])) {
+                include('delete_users.php');
+            }
+            if(isset($_GET['delete_orders'])) {
+                include('delete_orders.php');
+            }
+            if(isset($_GET['delete_payments'])) {
+                include('delete_payments.php');
+            }
         ?>
      </div>
      
@@ -212,3 +213,5 @@ include('../functions/common_function.php');
 
 </body>
 </html>
+
+

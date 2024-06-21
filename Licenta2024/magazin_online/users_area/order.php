@@ -1,3 +1,4 @@
+
 <?php 
 include('../includes/connect.php'); 
 include('../functions/common_function.php');
@@ -48,7 +49,7 @@ include('../functions/common_function.php');
        '$status') ";
        $result_query = mysqli_query($con, $insert_orders);
        if($result_query){
-         echo "<script> alert ('Comanda a fost transmisa cu succes!') </script>";
+         echo "<script> alert ('Comanda trimisa cu succes !') </script>";
          echo "<script> window.open ('profile.php', '_self') </script>";
        }
      

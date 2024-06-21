@@ -1,6 +1,6 @@
 
 
-<h3 class="text-center text-success"> Toti Utilizatorii </h3>
+<h3 class="text-center text-danger fw-bold"> Toti Utilizatorii </h3>
     <table class="table table-bordered mt-5">
         <thead>
             <?php 
@@ -9,12 +9,12 @@
             $row_count = mysqli_num_rows($result);
             echo "
             <tr class='text-center'>
-                <th>Serie Numar</th>
-                <th>Utilizator Nume</th>
-                <th>Utilizator Email</th>
-                <th>Utilizator Imagine</th>
-                <th>Utilizator Adresa</th>
-                <th>Utilizator Numar Telefon</th>
+                <th>Nr</th>
+                <th>Nume Utilizator</th>
+                <th>Email</th>
+                <th>Imagine</th>
+                <th>Adresa Utilizator</th>
+                <th>Nr Mobil</th>
                 <th>Stergere</th>
             </tr>
             </thead>
@@ -33,21 +33,21 @@
                     $user_address = $row_data['user_address'];  
                     $user_mobile = $row_data['user_mobile']; 
                 $number++;  
-                echo "
+            echo "
             <tr class='text-center'>
 
-                <td> $number </td>
-                <td> $username </td>
-                <td> $user_email </td>
+                <td>  $number  </td>
+                <td>  $username </td>
+                <td>  $user_email </td>
                 <td> <img src='../users_area/user_images/$user_image' 
                 alt='$username' class='product_img' /> </td>
-                <td> $user_address </td>
-                <td> $user_mobile </td>
-                <td> <a href='' class='text-dark' > 
+                <td>  $user_address </td>
+                <td>  $user_mobile </td>
+                <td>  <a href='index.php?delete_users= $user_id ' class='text-dark' > 
                         <i class='fa-solid fa-trash'> </i> </a> </td>
             </tr>
-            ";  
-
+             
+            ";
                 } 
             }
             

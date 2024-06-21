@@ -22,10 +22,10 @@ if(isset($_POST['confirm_payment'])){
     amount, payment_mode) VALUES ($order_id, $invoice_number, $amount, '$payment_mode' )";
     $result = mysqli_query($con, $insert_query);
     if($result){
-        echo "<h3 class='text-center text-light'> Ati efectuat cu succes plata! </h3> ";
+        echo "<h3 class='text-center text-light'> Plata platita cu succes ! </h3> ";
         echo "<script> window.open('profile.php?my_orders', '_self') </script>";
     }
-    $update_orders = "UPDATE `user_orders` SET order_status='Complete' WHERE
+    $update_orders = "UPDATE `user_orders` SET order_status='Complet' WHERE
     order_id= $order_id ";
     $result_orders = mysqli_query($con, $update_orders);
 }
@@ -37,7 +37,7 @@ if(isset($_POST['confirm_payment'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Pagina Plata </title>
+    <title> Confirma Plata </title>
 
     <!-- bootstrap css link -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
@@ -47,9 +47,9 @@ if(isset($_POST['confirm_payment'])){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
 </head>
-<body class="bg-secondary">
+<body class="bg-warning">
     <div class="container my-5">
-        <h1 class="text-center text-light"> Confirmare Plata </h1>
+        <h1 class="text-center text-danger fw-bold"> Confirma Plata </h1>
         <form action="" method="post">
 
             <div class="form-outline my-4 text-center w-50 m-auto">
@@ -57,22 +57,21 @@ if(isset($_POST['confirm_payment'])){
                 name="invoice_number" value="<?php echo $invoice_number ?>">
             </div>
             <div class="form-outline my-4 text-center w-50 m-auto">
-                <label for="" class="text-light"> Suma datorata </label>
+                <label for="" class="text-danger fw-bold"> Suma de Plata </label>
                 <input type="text" class="form-control w-50 m-auto"
                 name="amount" value="<?php echo $amount_due ?>">
             </div>
             <div class="form-outline my-4 text-center w-50 m-auto">
                 <select name="payment_mode" class="form-select w-50 m-auto">
-                    <option>Selecteaza Modalitate Plata</option>
-                    <option>Visa</option>
-                    <option>Mastercard</option>
+                    <option>Selectati Modul de Plata</option>
+                    <option>Transfer Bancar</option>
                     <option>Paypal</option>
-                    <option>Plata la livrare</option>
-                    <option>Plateste Alternativ</option>
+                    <option>Cash la Livrare</option>
+                    
                 </select>                
             </div>
             <div class="form-outline my-4 text-center w-50 m-auto">
-                <input type="submit" class="bg-info py-2 px-3 border-0"
+                <input type="submit" class="bg-danger text-white fw-bold py-2 px-3 border-0"
                 value="Confirmare" name="confirm_payment">
             </div>
 

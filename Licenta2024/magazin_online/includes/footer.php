@@ -1,3 +1,5 @@
-<div class="bg-info p-1 text-center">
-    <p> Magazin Produse autentice locale - Toate drepturile sunt rezervate! </p>
+
+<div class="bg-warning p-1 text-center text-white">
+    <p> Magazin Online cu Produse Locale - 
+        toate drepturile sunt rezervate ! </p>
 </div>

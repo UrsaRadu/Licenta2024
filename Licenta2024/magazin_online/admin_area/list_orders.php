@@ -1,5 +1,5 @@
 
-<h3 class="text-center text-success"> Toate Comenzile </h3>
+<h3 class="text-center text-danger fw-bold"> Total Comenzi </h3>
     <table class="table table-bordered mt-5">
         <thead>
             <?php 
@@ -8,12 +8,12 @@
             $row_count = mysqli_num_rows($result);
             echo "
             <tr class='text-center'>
-                <th>Serie Numar</th>
-                <th>Suma datorata</th>
-                <th>Numar Factura</th>
+                <th>Nr</th>
+                <th>Suma Totala de Plata</th>
+                <th>Nr Factura</th>
                 <th>Total Produse</th>
-                <th>Data Comanda</th>
-                <th>Status</th>
+                <th>Data Comenzii</th>
+                <th>Conditie</th>
                 <th>Stergere</th>
             </tr>
             </thead>
@@ -21,7 +21,7 @@
             ";
             if($row_count == 0){
                 echo "<h2 class='text-danger text-center mt-5'> 
-                Nici o comanda inca! </h2>";
+                Nu sunt comenzi </h2>";
             } else {
                 $number = 0;
                 while($row_data = mysqli_fetch_assoc($result)){
@@ -42,7 +42,7 @@
                 <td> $total_products </td>
                 <td> $order_date </td>
                 <td> $order_status </td>
-                <td> <a href='' class='text-dark' > 
+                <td> <a href='index.php?delete_orders= $order_id ' class='text-dark' > 
                         <i class='fa-solid fa-trash'> </i> </a> </td>
             </tr>
             ";  

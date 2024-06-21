@@ -1,6 +1,6 @@
 
 
-<h3 class="text-danger mb-4"> Sterge Cont </h3>
+<h3 class="text-danger fw-bold mb-4"> Stergere Cont </h3>
     <form action="" method="post" class="mt-5">
 
         <div class="form-outline mb-4">
@@ -22,7 +22,7 @@
         $result = mysqli_query($con, $delete_query);
         if($result){
             session_destroy();
-            echo "<script> alert ('Contul a fost sters cu succes!') </script>";
+            echo "<script> alert ('Cont Sters cu Succes !') </script>";
             echo "<script> window.open ('../index.php', '_self') </script>";
         }
     }

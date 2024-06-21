@@ -1,3 +1,4 @@
+
 <!-- connect file -->
 <?php 
 include('../includes/connect.php');
@@ -9,7 +10,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Magazin - Produse autentice locale </title>
+    <title> Produse Locale </title>
 
     <!-- bootstrap css link -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
@@ -25,18 +26,16 @@ session_start();
     <link rel="stylesheet" href="#">
 
     <style> 
+    .logo{
+    width: 7%;
+    height: 7%;
+}
     body{
         overflow-x: hidden;
+          
     }
-    .logo{
-    width: 10%;
-    height: 10%;
-    object-fit: contain;
-}
+
     </style>
-
-<body></body>
-
 
 </head>
 <body>
@@ -44,8 +43,8 @@ session_start();
     <div class="container-fluid p-0">
 
          <!-- first child -->
-         <nav class="navbar navbar-expand-lg navbar-light bg-info">
-  <img src="../images/logo.jpg" alt="" class="logo">
+         <nav class="navbar navbar-expand-lg navbar-warning bg-warning">
+  <img src="../images/logo5.png" alt="" class="logo">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -54,25 +53,22 @@ session_start();
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
     <li class="nav-item active">
-        <a class="nav-link"  href="../index.php">Acasa <span class="sr-only"></span></a>
+        <a class="nav-link text-white"  href="../index.php">Acasa <span class="sr-only">(current)</span></a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="../display_all.php"> Produse </a>
+        <a class="nav-link text-white" href="../display_all.php"> Produse </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="user_registration.php"
+        <a class="nav-link text-white" href="user_registration.php"
         > Inregistrare </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"> Contact </a>
-      </li>
-      
+            
       
     </ul>
-    <form class="form-inline my-2 my-lg-0" action="search_product.php"
+    <form class="form-inline my-2 my-lg-0" action="../search_product.php"
     method="get">
-      <input class="form-control mr-sm-2" type="search" placeholder="Cauta" 
+      <input class="form-control mr-sm-2 text-warning" type="search" placeholder="Cauta" 
       aria-label="Search" name="search_data">
       <input type="submit" value="Search" class="btn btn-outline-light"
       name="search_data_product">
@@ -82,7 +78,7 @@ session_start();
 
 
     <!-- second child -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-white text-warning">
       <ul class="navbar-nav me-auto">
 
 
@@ -90,12 +86,12 @@ session_start();
     if(!isset($_SESSION['username'])){
       echo"
         <li class='nav-item'>
-          <a class='nav-link' href='#'> Bine ati venit</a> 
+          <a class='nav-link text-warning' href='#'> Bine ai Venit </a> 
         </li> ";
       } else {
         echo "
         <li class='nav-item'>
-        <a class='nav-link' href='#'> Bine ai venit 
+        <a class='nav-link text-warning' href='#'> Bine ai Venit 
         ".$_SESSION['username']."</a> 
       </li> "; 
       }
@@ -103,12 +99,12 @@ session_start();
     if(!isset($_SESSION['username'])){
       echo"
       <li class='nav-item'>
-          <a class='nav-link' href='user_login.php'> Logare </a> 
+          <a class='nav-link text-warning' href='user_login.php'> Autentificare </a> 
         </li> ";
       } else {
         echo "
         <li class='nav-item'>
-        <a class='nav-link' href='logout.php'> Logare </a> 
+        <a class='nav-link text-warning' href='logout.php'> Deconectare </a> 
       </li> "; 
       }
     ?>
@@ -117,8 +113,8 @@ session_start();
     </nav>
 
     <!-- third child -->
-    <div class="bg-light">
-      <h3 class="text-center"> Magazin Produse </h3>
+    <div class="bg-warning text-white">
+      <h3 class="text-center"> Magazin Online cu Produse Locale </h3>
     </div>
 
 

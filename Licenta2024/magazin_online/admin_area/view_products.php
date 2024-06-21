@@ -1,15 +1,14 @@
 
     
-    <h3 class="text-center text-success"> Toate Produsele </h3>
+    <h3 class="text-center text-danger fw-bold"> Toate Produsele </h3>
     <table class="table table-bordered mt-5">
         <thead>
             <tr class="text-center">
-                <th> Produs Id </th>
-                <th> Produs Denumire </th>
-                <th> Produs Imagine </th>
-                <th> Product Pret </th>
-                <th> Total </th>
-                <th> Status </th>
+                <th> Nr </th>
+                <th> Titlu Produs </th>
+                <th> Imagine Produs </th>
+                <th> Pret Produs </th>
+                <th> Total Vandute </th>
                 <th> Editare </th>
                 <th> Stergere </th>
             </tr>
@@ -43,7 +42,7 @@
                     echo $rows_count;
                 
                 ?> </td>
-                <td> <?php echo $status; ?> </td>
+                
                 <td> <a href="index.php?edit_products=<?php echo $product_id ?>" class="text-dark"> <i class="fa-solid 
                     fa-pen-to-square"> </i> </a> </td>
                 <td> <a href="index.php?delete_product=<?php echo $product_id ?>" class="text-dark"> <i class="fa-solid 

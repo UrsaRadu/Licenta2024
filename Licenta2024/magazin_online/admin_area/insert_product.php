@@ -1,3 +1,4 @@
+
 <?php 
 include('../includes/connect.php');
 if(isset($_POST['insert_product'])) {
@@ -12,39 +13,33 @@ if(isset($_POST['insert_product'])) {
 
     //accessing images
     $product_image1 = $_FILES['product_image1']['name'];
-    $product_image2 = $_FILES['product_image2']['name'];
-    $product_image3 = $_FILES['product_image3']['name'];
+    
 
     //accesing image tmp name
     $temp_image1 = $_FILES['product_image1']['tmp_name'];
-    $temp_image2 = $_FILES['product_image2']['tmp_name'];
-    $temp_image3 = $_FILES['product_image3']['tmp_name'];
+    
 
     //checking empty condition
     if($product_title == '' or $description == '' or
     $product_keywords == '' or $product_category == ''
     or $product_brands == '' or $product_price == '' or
-    $product_image1 == '' or $product_image2 == '' or
-    $product_image3 == '' ) {
-        echo "<script> alert ('Vă rugăm să completați toate câmpurile disponibile') </script>";
+    $product_image1 == '' ) {
+        echo "<script> alert ('Insereaza toate campurile !') </script>";
         exit();
     }else{
         move_uploaded_file($temp_image1,"./product_images/$product_image1");
-        move_uploaded_file($temp_image2,"./product_images/$product_image2");
-        move_uploaded_file($temp_image3,"./product_images/$product_image3");
+       
         
         // insert query
         $insert_products = "INSERT INTO `products` (product_title, 
         product_description, product_keywords, category_id, brand_id, 
-        product_image1, product_image2, product_image3,
-        product_price, date, status) VALUES ('$product_title', '$description', 
+        product_image1, product_price, date, status) VALUES ('$product_title', '$description', 
         '$product_keywords', '$product_category', '$product_brands',
-        '$product_image1', '$product_image2', '$product_image3',
-        '$product_price', NOW(), '$product_status')";
+        '$product_image1', '$product_price', NOW(), '$product_status')";
 
         $result_query = mysqli_query($con, $insert_products);
         if($result_query){
-            echo "<script> alert ('Produsele au fost introduse cu succes!') </script>";
+            echo "<script> alert ('Produs inserat cu succes !') </script>";
         }
     }
 }
@@ -55,7 +50,7 @@ if(isset($_POST['insert_product'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Introducere Produse - Admin Dashboard </title>
+    <title> Insereaza Produse </title>
 
     <!-- bootstrap css link -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
@@ -71,46 +66,46 @@ if(isset($_POST['insert_product'])) {
 </head>
 <body class="bg-light">
     <div class="container mt-3">
-        <h1 class="text-center"> Introducere Produse  </h1>
+        <h1 class="text-center text-danger fw-bold"> Insereaza Produse </h1>
         
         <!-- form -->
         <form action="" method="post" enctype="multipart/form-data">
 
             <!-- Title --> 
             <div class="form-outline  mb-4 w-50 m-auto">
-                <label for="product_title" class="form-label">
-                    Produs Denumire
+                <label for="product_title" class="form-label text-warning fw-bold">
+                    Nume Produs 
                 </label>
                 <input type="text" name="product_title" id="product_title"
-                class="form-control" placeholder="Introduceti Denumirea Produsului"
+                class="form-control" placeholder="Introdu Nume Produs"
                 autocomplete="off" required="required">
             </div>
 
             <!-- Description --> 
             <div class="form-outline mb-4 w-50 m-auto">
-                <label for="description" class="form-label">
-                    Produs Descriere  
+                <label for="description" class="form-label text-warning fw-bold">
+                    Descriere Produs 
                 </label>
                 <input type="text" name="description" id="description"
-                class="form-control" placeholder="Introduceti Descrierea Produsului"
+                class="form-control" placeholder="Introdu Descriere Produs"
                 autocomplete="off" required="required">
             </div>
 
             <!-- Keywords --> 
             <div class="form-outline mb-4 w-50 m-auto">
-                <label for="product_keywords" class="form-label">
-                    Produs Cuvinte Cheie  
+                <label for="product_keywords" class="form-label text-warning fw-bold">
+                     Nume Produs la Cautare  
                 </label>
                 <input type="text" name="product_keywords" id="product_keywords"
-                class="form-control" placeholder="Introduceti Cuvintele Cheie ale Produsului"
+                class="form-control" placeholder="Introdu Nume Produs la Cautare"
                 autocomplete="off" required="required">
             </div>
 
             <!-- Categories --> 
             <div class="form-outline mb-4 w-50 m-auto">
                 <select name="product_category" id=""
-                class="form-select">
-                    <option value=""> Selecteaza o categorie </option> 
+                class="form-select text-warning fw-bold">
+                    <option value=""> Selecteaza Denumire Produs </option> 
                 <?php 
                           $select_query ="SELECT * FROM `categories`";
                           $result_query = mysqli_query($con, $select_query);
@@ -127,8 +122,8 @@ if(isset($_POST['insert_product'])) {
             <!-- Brands --> 
             <div class="form-outline mb-4 w-50 m-auto">
                 <select name="product_brands" id=""
-                class="form-select">
-                    <option value=""> Selecteaza un Producator </option> 
+                class="form-select text-warning fw-bold">
+                    <option value=""> Selecteaza Denumire Producator </option> 
                     <?php 
                           $select_query ="SELECT * FROM `brands`";
                           $result_query = mysqli_query($con, $select_query);
@@ -144,45 +139,33 @@ if(isset($_POST['insert_product'])) {
 
             <!-- Image 1 --> 
             <div class="form-outline mb-4 w-50 m-auto">
-                <label for="product_image1" class="form-label">
-                    Produs Imagine 1 
+                <label for="product_image1" class="form-label text-warning fw-bold">
+                    Imagine Produs
                 </label>
                 <input type="file" name="product_image1" id="product_image1"
                 class="form-control" required="required">
             </div>
 
-            <!-- Image 2 --> 
-            <div class="form-outline mb-4 w-50 m-auto">
-                <label for="product_image2" class="form-label">
-                Produs Imagine 2
-                </label>
-                <input type="file" name="product_image2" id="product_image2"
-                class="form-control" required="required">
-            </div>
+           
 
-            <!-- Image 3 --> 
-            <div class="form-outline mb-4 w-50 m-auto">
-                <label for="product_image3" class="form-label">
-                Produs Imagine 3 
-                </label>
-                <input type="file" name="product_image3" id="product_image3"
-                class="form-control" required="required">
-            </div>
+            
 
             <!-- Price --> 
             <div class="form-outline mb-4 w-50 m-auto">
-                <label for="product_price" class="form-label">
-                    Produs Pret
+                <label for="product_price" class="form-label text-warning fw-bold">
+                    Pret Produs
                 </label>
                 <input type="text" name="product_price" id="product_price"
-                class="form-control" placeholder="Introduceti Pretul Produsului"
+                class="form-control" placeholder="Introdu Pret Produs"
                 autocomplete="off" required="required">
             </div>
 
             <!-- Price --> 
             <div class="form-outline mb-4 w-50 m-auto">
-                <input type="submit" name="insert_product" class="btn btn-info 
-                mb-3 px-3" value="Introduceti Produsele">
+                <input type="submit" name="insert_product" class="btn btn-danger text-white fw-bold 
+                mb-3 px-3" value="Insereaza Produsul">
+                <a href="../admin_area/index.php">
+                <h6 class="btn btn-danger text-white fw-bold mb-3 px-3"> Inapoi la Acasa </h6>
             </div>
             
 

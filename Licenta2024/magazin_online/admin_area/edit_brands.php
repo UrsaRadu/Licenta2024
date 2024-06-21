@@ -19,25 +19,27 @@
         brand_id= $edit_brand ";
         $result_brandd = mysqli_query($con, $update_query);
         if($result_brandd){
-            echo "<script> alert ('Producatorul a fost actualizat cu succes!') </script>";
-            echo "<script> window.open ('./index.php?view_brands.php', '_self') </script>";
+            echo "<script> alert ('Denumirea a fost actualizata cu succes !') </script>";
+            echo "<script> window.open ('./index.php?view_categ_brands.php', '_self') </script>";
         }
     }
     
     ?>
 
     <div class="container mt-3">
-        <h1 class="text-center"> Editare Producator </h1>
+        <h1 class="text-center text-danger fw-bold"> Editare Denumire Producator</h1>
         <form action="" method="post" class="text-center">
             <div class="form-outline mb-4 w-50 m-auto">
                 <label for="brand_title" class="form-label">
-                    Denumire Producator
+                    
                     <input type="text" name="brand_title"
                     id="brand_title" class="form-control"
                     required="required" value="<?php echo $brand_title; ?>">
                 </label>
             </div>
-            <input type="submit" value="Update Brand"
-            class="btn btn-info px-3 mb-3" name="edit_brandd">
+            <input type="submit" value="Actualizare"
+            class="btn btn-danger text-white fw-bold px-3 mb-3" name="edit_brandd">
+            <a href="../admin_area/index.php">
+                <h6 class="btn btn-danger text-white fw-bold mb-3 px-3"> Inapoi la Acasa </h6></a>
         </form>  
     </div>

@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Comenzile Mele</title>
    
 
 </head>
@@ -21,17 +21,17 @@
 
     
     ?>
-      <h3 class="text-success"> Toate Comenzile Mele </h3>
+      <h3 class="text-danger fw-bold"> Comenzile Mele </h3>
       <table class="table table-bordered mt-5">
         <thead class="bg-info">
         <tr>
-            <th>Serie Numar</th>
-            <th>Suma Datorata</th>
-            <th>Total Produs</th>
-            <th>Factura Numar</th>
+            <th>Numar</th>
+            <th>Suma Totala</th>
+            <th>Nr Produse</th>
+            <th>Nr Factura</th>
             <th>Data</th>
-            <th>Complet/Incomplet</th>
-            <th>Status</th>
+            <th>Complet / Incomplet</th>
+            <th> Conditie</th>
         </tr>
         </thead>
         <tbody >
@@ -48,9 +48,9 @@
                 $order_status = $row_orders['order_status'];
                 
                 if($order_status == 'pending'){
-                    $order_status = 'Incomplete';
+                    $order_status = 'Incomplet';
                 } else {
-                    $order_status = 'Complete';
+                    $order_status = 'Complet';
                 }
 
                 $order_date = $row_orders['order_date'];
@@ -66,12 +66,12 @@
             ?>
 
             <?php
-                if($order_status == 'Complete'){
+                if($order_status == 'Complet'){
                     echo "<td> Platit </td>";
                 } else {
                 echo "                       
                 <td> <a href= 'confirm_payment.php?order_id=$order_id' 
-                class = 'text-dark'> Confirmare </a> </td>
+                class = 'text-dark'> Confirma </a> </td>
             </tr> 
                 ";
             }
